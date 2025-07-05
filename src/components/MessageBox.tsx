@@ -20,6 +20,7 @@ import SearchImages from './SearchImages';
 import SearchVideos from './SearchVideos';
 import { useSpeech } from 'react-text-to-speech';
 import ThinkBox from './ThinkBox';
+import ShoppingListView from './ShoppingListView';
 
 const ThinkTagProcessor = ({ children }: { children: React.ReactNode }) => {
   return <ThinkBox content={children as string} />;
@@ -171,6 +172,22 @@ const MessageBox = ({
               >
                 {parsedMessage}
               </Markdown>
+              
+              {/* DIY Shopping List Display */}
+              {message.diyShoppingList && (
+                <div className="mt-6">
+                  <ShoppingListView
+                    projectName={message.diyShoppingList.projectName}
+                    projectDescription={message.diyShoppingList.projectDescription}
+                    products={message.diyShoppingList.products}
+                    budget={message.diyShoppingList.budget}
+                    tips={message.diyShoppingList.tips}
+                    warnings={message.diyShoppingList.warnings}
+                    timeline={message.diyShoppingList.timeline}
+                  />
+                </div>
+              )}
+              
               {loading && isLast ? null : (
                 <div className="flex flex-row items-center justify-between w-full text-black dark:text-white py-4 -mx-2">
                   <div className="flex flex-row items-center space-x-1">

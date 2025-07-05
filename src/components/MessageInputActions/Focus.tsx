@@ -5,6 +5,7 @@ import {
   Pencil,
   ScanEye,
   SwatchBook,
+  Hammer,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import {
@@ -52,6 +53,12 @@ const focusModes = [
     title: 'Reddit',
     description: 'Search for discussions and opinions',
     icon: <SiReddit className="h-5 w-auto mr-0.5" />,
+  },
+  {
+    key: 'diySearch',
+    title: 'DIY Assistant',
+    description: 'Plan DIY projects with shopping lists',
+    icon: <Hammer size={20} />,
   },
 ];
 

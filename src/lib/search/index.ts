@@ -56,4 +56,13 @@ export const searchHandlers: Record<string, MetaSearchAgent> = {
     searchWeb: true,
     summarizer: false,
   }),
+  diySearch: new MetaSearchAgent({
+    activeEngines: ['google', 'amazon'],
+    queryGeneratorPrompt: prompts.diySearchRetrieverPrompt,
+    responsePrompt: prompts.diySearchResponsePrompt,
+    rerank: true,
+    rerankThreshold: 0.2,
+    searchWeb: true,
+    summarizer: false,
+  }),
 };

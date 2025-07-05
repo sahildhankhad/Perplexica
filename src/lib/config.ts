@@ -46,6 +46,9 @@ interface Config {
       API_KEY: string;
       MODEL_NAME: string;
     };
+    PERPLEXITY: {
+      API_KEY: string;
+    };
   };
   API_ENDPOINTS: {
     SEARXNG: string;
@@ -101,6 +104,9 @@ export const getCustomOpenaiModelName = () =>
 
 export const getLMStudioApiEndpoint = () =>
   loadConfig().MODELS.LM_STUDIO.API_URL;
+
+export const getPerplexityApiKey = () =>
+  loadConfig().MODELS.PERPLEXITY.API_KEY;
 
 const mergeConfigs = (current: any, update: any): any => {
   if (update === null || update === undefined) {

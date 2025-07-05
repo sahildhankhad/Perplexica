@@ -15,3 +15,43 @@ server:
 engines:
   - name: wolframalpha
     disabled: false
+  
+  # Shopping engines for DIY product search
+  - name: amazon
+    engine: amazon
+    shortcut: amazon
+    disabled: false
+    categories: [shopping]
+    
+  - name: google shopping
+    engine: google_shopping
+    shortcut: gshop
+    disabled: false
+    categories: [shopping]
+    
+  - name: ebay
+    engine: ebay
+    shortcut: ebay
+    disabled: false
+    categories: [shopping]
+    
+  # Custom engines for home improvement stores
+  - name: home depot
+    engine: xpath
+    search_url: https://www.homedepot.com/s/{query}
+    url_xpath: //h3[@class='product-title']/a/@href
+    title_xpath: //h3[@class='product-title']/a/text()
+    content_xpath: //div[@class='price-detailed']/span/text()
+    categories: [shopping]
+    shortcut: hd
+    disabled: false
+    
+  - name: lowes
+    engine: xpath
+    search_url: https://www.lowes.com/search?searchTerm={query}
+    url_xpath: //a[@class='art-d-prl-link']/@href
+    title_xpath: //h4[@class='art-d-prl-title']/text()
+    content_xpath: //span[@class='sr-only'][contains(text(), 'current price')]/following-sibling::text()
+    categories: [shopping]
+    shortcut: lowes
+    disabled: false

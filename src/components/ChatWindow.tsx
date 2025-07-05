@@ -21,6 +21,38 @@ export type Message = {
   role: 'user' | 'assistant';
   suggestions?: string[];
   sources?: Document[];
+  focusMode?: string;
+  diyShoppingList?: {
+    projectName: string;
+    projectDescription: string;
+    products: {
+      name: string;
+      price: string;
+      originalPrice?: string;
+      retailer: string;
+      url: string;
+      rating?: number;
+      reviewCount?: number;
+      availability: 'in-stock' | 'limited' | 'out-of-stock' | 'special-order';
+      imageUrl?: string;
+      category: string;
+      quantity?: number;
+      unit?: string;
+    }[];
+    budget: {
+      materials: number;
+      tools: number;
+      fixtures: number;
+      consumables: number;
+      shipping: number;
+      tax: number;
+      total: number;
+      savings: number;
+    };
+    tips?: string[];
+    warnings?: string[];
+    timeline?: string;
+  };
 };
 
 export interface File {
